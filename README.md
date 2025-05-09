@@ -12,7 +12,7 @@
 
 ## 📌 Business Requirements
 
-This system has been built and designed to enable project owners to re-sell their services. It is flexible and can be adapted to **any kind of reservation system**, such as:
+This system has been built and designed to enable project owners to re-sale their services. It is flexible and can be adapted to **any kind of reservation system**, such as:
 - Gym reservation system
 - Hotel reservation system
 
