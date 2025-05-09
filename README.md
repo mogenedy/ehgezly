@@ -75,10 +75,15 @@ php artisan serve
 🔐 Authentication (Seeded Users)
 
 You can use the following test accounts:
+
 Admin
+
 Email: admin@gmail.com
+
 Password: password
 
 User
+
 Email: user@gmail33.com
+
 Password: password
