@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Providers;
+
+// use Illuminate\Support\Facades\Gate;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * The model to policy mappings for the application.
+     *
+     * @var array<class-string, class-string>
+     */
+    protected $policies = [
+        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+    ];
+
+    /**
+     * Register any authentication / authorization services.
+     */
+    public function boot(): void
+{
+    Paginator::useBootstrap();
+
+    $this->registerPolicies();
+
+    foreach (config('permissions') as $config_permission => $value) {
+        Gate::define($config_permission, function ($auth) use ($config_permission) {
+            $auth = auth(guard: 'admin')->user();
+            if (!$auth) {
+                return false;
+            }
+            return $auth->hasAccess($config_permission);
+        });
+    }
+}
+
+}
