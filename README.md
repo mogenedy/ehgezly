@@ -36,9 +36,27 @@ Based on booking experience, these features are **highly recommended**:
  2.  git clone https://github.com/ehgezly/ehgezly.git
    cd ehgezly
 3.composer install
-4.php artisan key:generate
-5.php artisan migrate
-6-php artisan migrate:fresh --seed
+4.Copy the example environment file and set up your environment variables:
+cp .env.example .env
+5-Generate the application key:
+
+php artisan key:generate
+6-Set up your database configuration in the .env file:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+Run the database migrations:
+
+7-php artisan migrate
+8-seed the database
+php artisan migrate:fresh --seed
+Start the local development server:
+php artisan serve
+
 🔐 Authentication (Seeded Users)
 
 You can use the following test accounts:
