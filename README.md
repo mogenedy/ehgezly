@@ -33,11 +33,16 @@ Based on booking experience, these features are **highly recommended**:
 
 1. Clone the repository:
    ```bash
+   
  2.  git clone https://github.com/ehgezly/ehgezly.git
+    
    cd ehgezly
+   
 3.composer install
+
 4.Copy the example environment file and set up your environment variables:
 cp .env.example .env
+
 5-Generate the application key:
 
 php artisan key:generate
