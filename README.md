@@ -44,17 +44,27 @@ php artisan key:generate
 6-Set up your database configuration in the .env file:
 
 DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your_database_name
-DB_USERNAME=your_database_user
-DB_PASSWORD=your_database_password
-Run the database migrations:
 
-7-php artisan migrate
+DB_HOST=127.0.0.1
+
+DB_PORT=3306
+
+DB_DATABASE=your_database_name
+
+DB_USERNAME=your_database_user
+
+DB_PASSWORD=your_database_password
+
+7-Run the database migrations:
+
+php artisan migrate
+
 8-seed the database
+
 php artisan migrate:fresh --seed
+
 Start the local development server:
+
 php artisan serve
 
 🔐 Authentication (Seeded Users)
