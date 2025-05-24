@@ -1,0 +1,101 @@
+### Requirements ###
+### Suggestions for added features ####
+ - Add Categories
+ - Add Search
+
+ ### Assumptions ####
+- Each service is available every day from defined start time to defined end time
+- Each service can reserved only once at the same time
+
+I as a user want to reserve service A tomorrow at 10AM
+    What makes it available at this time
+    10AM is within its availability window
+    And no other reservation is at that time for that service
+
+Service reservation duration -> each service has a duration?
+
+
+I as a user want to reserve service A, what is the flow?
+Choose date -> see list of available times -> choose time -> select
+
+How will we show available times?
+
+Tables
+- services
+        -> duration (In minutes)
+        -> available_from
+        -> available_to
+        -> [optional] cancellation_cutoff_hours
+
+- reservations
+        -> service_id
+        -> user_id
+        -> date_from
+        -> date_to
+
+
+Example reservation flow: (User perespective)
+    -> User asks for consultation service
+    -> User chooses a date (17/01/2025)
+    -> User sees a list of available times
+            -> 10AM
+            -> 11AM
+            -> 01PM
+
+Example reservation flow: (System perespective)
+    -> How available times are calculated
+        -> Get consultation available_from, available_to and duration (10:18), duration: 1hour
+        -> Create a list of all available points of time
+            -> 10
+            -> 11
+            -> 12
+            -> 13
+            -> 14
+            -> 15
+            -> 16
+            -> 17
+        -> Get all reservations for consultation service at 17/01/2025
+            -> then we have a list of occupied from and to
+                    -> 10:11
+                    -> 13:14
+        -> Update the available points of time to exclude reserved times
+              -> 11
+              -> ....
+              -> ...
+
+
+
+
+
+User endpoints
+    -> GET /services
+        -> Get all services
+    -> GET /services/:id
+        -> Get single service with all details
+    -> GET /services/:id/availability?date=YYYY-MM-DD
+        -> List of available times that user can reserve this service in
+                            -> 10
+                            -> 11
+                            -> 12
+                            -> 13
+                            -> 14
+                            -> 15
+                            -> 16
+                            -> 17
+    -> POST /reservations (Validate  this datetime availability and add a reservation)
+        -> PAYLOAD
+            service_id
+            datetime
+
+    -> GET /reservations?mode=past|future
+        -> User sees all his reservations
+
+
+
+    -> POST /reservation/:id/cancel
+        -> Get current datetime
+        -> Get reservation datetime
+        -> if reservation datetime - current datetime (in hours) > cancellation_cutoff_hours -> allow
+            -> otherwise: deny
+
+
