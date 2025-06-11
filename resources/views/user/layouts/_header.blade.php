@@ -32,7 +32,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
-    <title>Atoli - Hotel & Resorts HTML Template</title>
+    <title>Ehgezly</title>
 </head>
 <body>
 
@@ -106,11 +106,7 @@
                             </li>
                             
                             
-                            
-                            {{-- <li>
-                                <i class='bx bx-envelope'></i>
-                                <a href="mailto:hello@atoli.com">hello@atoli.com</a>
-                            </li> --}}
+                           
                         </ul>
                     </div>
                 </div>
@@ -124,7 +120,7 @@
         <!-- Menu For Mobile Device -->
         <div class="mobile-nav">
             <a href="index.html" class="logo">
-                <img src="assets/img/logos/logo-3.png" class="logo-one" alt="Logo">
+                        <img src="{{asset('user/assets/img/ehgezly.jpg') }}" alt="Logo" width="60" height="40"  >
                         <img src="assets/img/logos/footer-logo3.png" class="logo-two" alt="Logo">
             </a>
         </div>
@@ -134,7 +130,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light ">
                     <a class="navbar-brand" href="index.html">
-                        <img src="assets/img/logos/logo-3.png" class="logo-one" alt="Logo">
+                        <img src="{{asset('user/assets/img/ehgezly.jpg') }}" alt="Logo" width="60" height="50"  >
                         <img src="assets/img/logos/footer-logo3.png" class="logo-two" alt="Logo">
                     </a>
 
@@ -337,9 +333,7 @@
                             </li>
                         </ul>
 
-                        <div class="nav-btn">
-                            <a href="#" class="default-btn btn-bg-three">Book Now</a>
-                        </div>
+                        
                     </div>
                 </nav>
             </div>
